@@ -43,3 +43,20 @@ func IncrementRouteCall(routeName string) {
 		log.Printf("Unable to increment route call count: %v\n", err)
 	}
 }
+
+func GetTotalRequests() int64 {
+	var total int64
+	rows, err := Conn.Query(context.Background(), "SELECT SUM(call_count) FROM route_calls")
+	if err != nil {
+		return 0
+	}
+	defer rows.Close()
+	
+	if rows.Next() {
+		err := rows.Scan(&total)
+		if err != nil {
+			return 0
+		}
+	}
+	return total
+}

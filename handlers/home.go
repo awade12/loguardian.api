@@ -4,7 +4,6 @@ package handlers
 
 import (
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,7 +21,7 @@ type HomeResponse struct {
 
 func GetHome(c *gin.Context) {
 	response := HomeResponse{
-		Version:     "0.1.3",
+		Version:     "0.1.4",
 		Description: "Welcome to the Go Translation API. Below are the available endpoints.",
 		Routes: []RouteInfo{
 			{Route: "/flags", Method: "GET", Description: "Get flag to language mappings"},
