@@ -1,7 +1,7 @@
 package data
 
 
-// 181 language flags
+// 181 i think
 var FlagToLanguage = map[string]interface{}{
     "🇺🇸": "English",
     "🇫🇷": "French",
